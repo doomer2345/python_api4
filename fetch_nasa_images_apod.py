@@ -1,14 +1,7 @@
 import os
 import requests
-from tools import file_extension
+from tools import get_file_extension, dowloand_image
 from dotenv import load_dotenv
-
-
-def dowloand_images(url, filepath, params=None):
-    response = requests.get(url, params=params)
-    response.raise_for_status()
-    with open(filepath, 'wb') as file:
-        file.write(response.content)
 
 
 def fetch_nasa_images_apod(api_key):
@@ -18,12 +11,12 @@ def fetch_nasa_images_apod(api_key):
     response = requests.get(nasa_apod_url, params=payload)
     response.raise_for_status()
     for number, image in enumerate(response.json()):
-        filepath = os.path.join("images", f"nasa_apod{number}{file_extension(image['url'])}")
-        dowloand_images(image["url"], filepath)
+        filepath = os.path.join("images", f"nasa_apod{number}{get_file_extension(image['url'])}")
+        dowloand_image(image["url"], filepath)
 
 
 if __name__ == '__main__':
     load_dotenv()
-    api_key = os.getenv("API_KEY")
+    api_key = os.getenv("NASA_API_KEY")
     os.makedirs("images", exist_ok=True)
     fetch_nasa_images_apod(api_key)
