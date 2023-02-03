@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 
 def fetch_nasa_images_apod(api_key):
     nasa_apod_url = "https://api.nasa.gov/planetary/apod"
-    count = 45
-    payload = {"api_key": api_key, "count": count}
+    images_amount = 45
+    payload = {"api_key": api_key, "count": images_amount}
     response = requests.get(nasa_apod_url, params=payload)
     response.raise_for_status()
     for number, image in enumerate(response.json()):
