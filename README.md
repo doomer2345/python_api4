@@ -9,6 +9,8 @@
 CHAT_ID=id вашего чата
 TELEG_TOKEN=телеграмм токен
 API_KEY=ключ nasa
+POST_TIME=время через которое будет отправляться ваша картинка
+SPACEX_LAUNCH_ID=id запуска spacex
 ```
 
 Python3 должен быть уже установлен.
