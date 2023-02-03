@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 from os.path import splitext
 
 
-def dowloand_images(url, filepath, params=None):
+def dowloand_image(url, filepath, params=None):
     response = requests.get(url, params=params)
     response.raise_for_status()
     with open(filepath, 'wb') as file:
