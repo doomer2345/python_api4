@@ -1,6 +1,6 @@
 import os
 import requests
-from main import file_extension
+from tools import file_extension
 from dotenv import load_dotenv
 
 

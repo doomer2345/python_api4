@@ -1,6 +1,6 @@
 import os
 import requests
-from main import dowloand_images
+from tools import dowloand_image
 from dotenv import load_dotenv
 import datetime
 
@@ -17,7 +17,7 @@ def fetch_nasa_images_epic(api_key):
         date_time = datetime.datetime.fromisoformat(date_image)
         date = date_time.strftime('%Y/%m/%d')
         image_url = f"https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image_name}.png"
-        dowloand_images(image_url, filepath, params=payload)
+        dowloand_image(image_url, filepath, params=payload)
 
 if __name__ == '__main__':
     load_dotenv()
