@@ -21,6 +21,6 @@ def fetch_nasa_images_epic(api_key):
 
 if __name__ == '__main__':
     load_dotenv()
-    api_key = os.getenv("API_KEY")
+    api_key = os.getenv("NASA_API_KEY")
     os.makedirs("images", exist_ok=True)
     fetch_nasa_images_epic(api_key)
