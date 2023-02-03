@@ -10,6 +10,6 @@ def dowloand_image(url, filepath, params=None):
         file.write(response.content)
 
 
-def file_extension(url):
+def get_file_extension(url):
     file_path = urlparse(url).path
     return splitext(file_path)[1]
